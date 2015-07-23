@@ -3,58 +3,58 @@ var bio = {
     "name": "Niels",
     "role": "lead viking",
     "contacts": {
-        
-        "mobile" : "213213",
-        "email" :"asdfsda@sdfsdf",
-        "github" :"https://sfsdaf",
-        "twitter" : "#titter",
-        "blog" : "www.myspace.com/blog",
-        "location" : "secret base"
+
+        "mobile": "213213",
+        "email": "asdfsda@sdfsdf",
+        "github": "https://sfsdaf",
+        "twitter": "#titter",
+        "blog": "www.myspace.com/blog",
+        "location": "Moers, DE"
     },
-    "welcomeMessage":"hi there!",
+    "welcomeMessage": "hi there!",
     "skills": [
         "plundering", "burning", "killing"
     ],
     "bioPic": "images/fry.jpg",
-    "display" : function displayBio() {
-            // create header
-            var headerName = HTMLheaderName.replace("%data%", bio.name);
-            var htmlRole = HTMLheaderRole.replace("%data%", bio.role);
+    "display": function displayBio() {
+        // create header
+        var headerName = HTMLheaderName.replace("%data%", bio.name);
+        var htmlRole = HTMLheaderRole.replace("%data%", bio.role);
 
-            $("#header").prepend(headerName + htmlRole);
+        $("#header").prepend(headerName + htmlRole);
 
-            var mobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
-            var email = HTMLemail.replace("%data%", bio.contacts.email);
-            var twitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
-            var github = HTMLgithub.replace("%data%", bio.contacts.github);
-            var blog = HTMLblog.replace("%data%", bio.contacts.blog);
-            //var location = HTMLlocation.replace("%data%", bio.contacts.location);
+        var mobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+        var email = HTMLemail.replace("%data%", bio.contacts.email);
+        var twitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+        var github = HTMLgithub.replace("%data%", bio.contacts.github);
+        var blog = HTMLblog.replace("%data%", bio.contacts.blog);
+        //var location = HTMLlocation.replace("%data%", bio.contacts.location);
 
-            // add contact
-            $("#topContacts").append(mobile).append(email).append(twitter).append(github).append(blog);
-            $("#footerContacts").append(mobile).append(email).append(twitter).append(github).append(blog);
+        // add contact
+        $("#topContacts").append(mobile).append(email).append(twitter).append(github).append(blog);
+        $("#footerContacts").append(mobile).append(email).append(twitter).append(github).append(blog);
 
-            //// create bio and skills
+        //// create bio and skills
 
-            var bioPic = HTMLbioPic.replace("%data%", bio.bioPic);
-            var bioWelcome = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+        var bioPic = HTMLbioPic.replace("%data%", bio.bioPic);
+        var bioWelcome = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
 
-            var bioFormat = bioPic + bioWelcome + HTMLskillsStart;
-            $("#header").append(bioFormat);
+        var bioFormat = bioPic + bioWelcome + HTMLskillsStart;
+        $("#header").append(bioFormat);
 
-            for (skill in bio.skills)
-            {
-                var ski = HTMLskills.replace("%data%", bio.skills[skill]);
-                $("#skills").append(ski);
-            }
+        for (skill in bio.skills) {
+            var ski = HTMLskills.replace("%data%", bio.skills[skill]);
+            $("#skills").append(ski);
         }
+    }
 }
+
 
 var education = {
     "schools" : [
         {
             "name" : "school1",
-            "location": "city1, CY1",
+            "location": "Olbia, IT",
             "degree" : "MS",
             "majors" : ["CS"],
             "dates" : 2013,
@@ -62,7 +62,7 @@ var education = {
         },
         {
             "name" : "school2",
-            "location": "city2, CY2",
+            "location": "Camogli,IT",
             "degree" :"MBA",
             "majors" : ["CHEM"],
             "dates" : 2014,
@@ -125,14 +125,14 @@ var work = {
             "employer" : "Thor Inc",
             "title" : "Head of Guard",
             "dates": "january 0345 - December 2014 ",
-            "location" : "City of Asgard, Other Universe",
+            "location" : "Frankfurt, DE",
             "description" : "Beheading, sailing, drinking, singing, robbing"
         } ,
         {
             "employer" : "Stark Enterprises",
             "title" : "Head of Guard",
             "dates": "january 2015 - today",
-            "location" : "Start Building, 555 NY USA",
+            "location" : "Wesel, DE",
             "description" : "getting coffee for  mr. stark and ms. pepper"
         }
     ],
@@ -198,9 +198,17 @@ var experience = {
                         }
 }
 
+var map = {
+    "display": function displayMap() {
 
+        $("#map-div").append(googleMap);
+    }
 
+}
+
+// here drwarfs shovelling html
 bio.display();
 work.display();
 experience.display();
 education.display();
+map.display();
