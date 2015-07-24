@@ -49,153 +49,149 @@ var bio = {
     }
 }
 
-
 var education = {
-    "schools" : [
+    "schools": [
         {
-            "name" : "school1",
+            "name": "school1",
             "location": "Olbia, IT",
-            "degree" : "MS",
-            "majors" : ["CS"],
-            "dates" : 2013,
-            "url" : "http://www.heise.de"
+            "degree": "MS",
+            "majors": ["CS"],
+            "dates": 2013,
+            "url": "http://www.heise.de"
         },
         {
-            "name" : "school2",
+            "name": "school2",
             "location": "Camogli,IT",
-            "degree" :"MBA",
-            "majors" : ["CHEM"],
-            "dates" : 2014,
-            "url" : "http://www.bild.de"
+            "degree": "MBA",
+            "majors": ["CHEM"],
+            "dates": 2014,
+            "url": "http://www.bild.de"
         }
     ],
-    "onlineCourses" : [
+    "onlineCourses": [
                 {
-                    "title" :"javascript",
-                    "school" :"Udacity",
-                    "dates" : 2016,
-                    "url" : "http://udacity.com"
+                    "title": "javascript",
+                    "school": "Udacity",
+                    "dates": 2016,
+                    "url": "http://udacity.com"
                 },
                 {
-                    "title" :"swordmaking",
-                    "school" :"Udacity",
-                    "dates" : 2016,
-                    "url" : "http://udacity.com"
+                    "title": "swordmaking",
+                    "school": "Udacity",
+                    "dates": 2016,
+                    "url": "http://udacity.com"
                 }],
-        "display" : function displayEducation() {
-                    // create education
-                    $("#education").append(HTMLschoolStart);
-                    // create schools
-                    for (school in education.schools)
-                    {
-                        var schoolName = HTMLschoolName.replace("%data%", education.schools[school].name);
-                        var schoolDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
-                        var schoolDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
-                        var schoolLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
-    
-                        var formattedSchool = schoolName + schoolDegree + schoolDates + schoolLocation;
+    "display": function displayEducation() {
+        // create education
+        $("#education").append(HTMLschoolStart);
+        // create schools
+        for (school in education.schools) {
+            var schoolName = HTMLschoolName.replace("%data%", education.schools[school].name);
+            var schoolDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
+            var schoolDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
+            var schoolLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
 
-                        for (major in education.schools[school].majors) {
-                            var mjrItem = HTMLschoolMajor.replace("%data%", education.schools[school].majors[major]);
-                            formattedSchool += mjrItem;
-                        }
-                        $(".education-entry:last").append(formattedSchool);
-                    }
+            var formattedSchool = schoolName + schoolDegree + schoolDates + schoolLocation;
+
+            for (major in education.schools[school].majors) {
+                var mjrItem = HTMLschoolMajor.replace("%data%", education.schools[school].majors[major]);
+                formattedSchool += mjrItem;
+            }
+            $(".education-entry:last").append(formattedSchool);
+        }
 
 
-                    $(".education-entry:last").append(HTMLonlineClasses);
+        $(".education-entry:last").append(HTMLonlineClasses);
 
-                    // create onlinecourses
-                    for (course in education.onlineCourses)
-                    {   
-                        var onlineTitle = HTMLonlineTitle.replace("%data%",education.onlineCourses[course].title);
-                        var onlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[course].school);
-                        var onlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses[course].dates);
-                        var onlineUrl = HTMLonlineURL.replace("%data%", education.onlineCourses[course].url);
+        // create onlinecourses
+        for (course in education.onlineCourses) {
+            var onlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[course].title);
+            var onlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[course].school);
+            var onlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses[course].dates);
+            var onlineUrl = HTMLonlineURL.replace("%data%", education.onlineCourses[course].url);
 
-                        var formattedOnline = onlineTitle + onlineSchool + onlineDates + onlineUrl;
-                        $(".education-entry:last").append(formattedOnline);
-                    }
-                }
+            var formattedOnline = onlineTitle + onlineSchool + onlineDates + onlineUrl;
+            $(".education-entry:last").append(formattedOnline);
+        }
+    }
 }
 
 var work = {
-    "jobs" : [
+    "jobs": [
         {
-            "employer" : "Thor Inc",
-            "title" : "Head of Guard",
+            "employer": "Thor Inc",
+            "title": "Head of Guard",
             "dates": "january 0345 - December 2014 ",
-            "location" : "Frankfurt, DE",
-            "description" : "Beheading, sailing, drinking, singing, robbing"
-        } ,
+            "location": "Frankfurt, DE",
+            "description": "Beheading, sailing, drinking, singing, robbing"
+        },
         {
-            "employer" : "Stark Enterprises",
-            "title" : "Head of Guard",
+            "employer": "Stark Enterprises",
+            "title": "Head of Guard",
             "dates": "january 2015 - today",
-            "location" : "Wesel, DE",
-            "description" : "getting coffee for  mr. stark and ms. pepper"
+            "location": "Wesel, DE",
+            "description": "getting coffee for  mr. stark and ms. pepper"
         }
     ],
-    "display":function displayWork() {
-    /// create jobs
-    for (job in work.jobs) {
+    "display": function displayWork() {
+        /// create jobs
+        for (job in work.jobs) {
 
-        $("#workExperience").append(HTMLworkStart);
+            $("#workExperience").append(HTMLworkStart);
 
-        var wrkEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer)
-        var wrkTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
-        var wrkDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
-        var wrkLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
-        var wrkDesc = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+            var wrkEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer)
+            var wrkTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+            var wrkDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+            var wrkLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+            var wrkDesc = HTMLworkDescription.replace("%data%", work.jobs[job].description);
 
-        var wrkItem = wrkEmployer + wrkTitle + wrkDates + wrkLocation + wrkDesc;
+            var wrkItem = wrkEmployer + wrkTitle + wrkDates + wrkLocation + wrkDesc;
 
-        $(".work-entry:last").append(wrkItem);
+            $(".work-entry:last").append(wrkItem);
+        }
     }
-}
 
 }
 
 var experience = {
-    "projects" : [
+    "projects": [
         {
-            "title" : "P1",
-            "dates" : 2014,
-            "description" : "Some stupid accounting",
-            "images" : [
-                        "image1",
-                         "image2"
-                        ]
+            "title": "P1",
+            "dates": 2014,
+            "description": "Some stupid accounting",
+            "images": [
+                         "../images/197x148.jpg",
+                         "../images/197x148.jpg"
+            ]
         },
          {
-             "title" : "P2",
-             "dates" : 2015,
-             "description" : "Some stupid gardening",
-             "images" : [
-                         "image3",
-                          "image4"
+             "title": "P2",
+             "dates": 2015,
+             "description": "Some stupid gardening",
+             "images": [
+                          "../images/197x148.jpg",
+                           "../images/197x148.jpg"
              ]
          }
     ],
-    "display" : function displayProjects() {
-                            // create projects
-                            for (project in experience.projects) {
-                                    $("#projects").append(HTMLprojectStart);
+    "display": function displayProjects() {
+        // create projects
+        for (project in experience.projects) {
+            $("#projects").append(HTMLprojectStart);
 
-                                    var prjTitle = HTMLprojectTitle.replace("%data%", experience.projects[project].title);
-                                    var prjDate = HTMLprojectDates.replace("%data%", experience.projects[project].dates);
-                                    var prjDesc = HTMLprojectDescription.replace("%data%", experience.projects[project].description);
-   
-                                    var formattedPrj = prjTitle + prjDate + prjDesc + prjIMG;
+            var prjTitle = HTMLprojectTitle.replace("%data%", experience.projects[project].title);
+            var prjDate = HTMLprojectDates.replace("%data%", experience.projects[project].dates);
+            var prjDesc = HTMLprojectDescription.replace("%data%", experience.projects[project].description);
 
-                                    for (img in experience.projects[project].images)
-                                    {
-                                        var prjIMG = HTMLprojectImage.replace("%data%", experience.projects[project].images[img]);
-                                        formattedPrj += prjIMG;
-                                    }
-                                    $(".project-entry:last").append(formattedPrj);
-                                }
-                        }
+            var formattedPrj = prjTitle + prjDate + prjDesc + prjIMG;
+
+            for (img in experience.projects[project].images) {
+                var prjIMG = HTMLprojectImage.replace("%data%", experience.projects[project].images[img]);
+                formattedPrj += prjIMG;
+            }
+            $(".project-entry:last").append(formattedPrj);
+        }
+    }
 }
 
 var map = {

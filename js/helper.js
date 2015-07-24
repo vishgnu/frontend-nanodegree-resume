@@ -120,7 +120,8 @@ function initializeMap() {
   function locationFinder() {
 
     // initializes an empty array
-    var locations = [];
+      var locations = [];
+
 
     // adds the single location property from bio to the locations array
     locations.push(bio.contacts.location);
@@ -152,6 +153,7 @@ function initializeMap() {
     var lon = placeData.geometry.location.lng();  // longitude from the place service
     var name = placeData.formatted_address;   // name of the place from the place service
     var bounds = window.mapBounds;            // current boundaries of the map window
+    var markerInfo = '<div> <h4> JOB: %Data% </h3> <ul> <li> %duration%</li><li> %rating%</li><ul></div>';
 
     // marker is an object with additional data about the pin for a single location
     var marker = new google.maps.Marker({
@@ -164,12 +166,12 @@ function initializeMap() {
     // or hover over a pin on a map. They usually contain more information
     // about a location.
     var infoWindow = new google.maps.InfoWindow({
-      content: name
+        content: markerInfo
     });
 
     // hmmmm, I wonder what this is about...
     google.maps.event.addListener(marker, 'click', function() {
-      // your code goes here!
+        infoWindow.open(map, marker);
     });
 
     // this is where the pin actually gets added to the map.
@@ -185,7 +187,7 @@ function initializeMap() {
   callback(results, status) makes sure the search returned results for a location.
   If so, it creates a new map marker for that location.
   */
-  function callback(results, status) {
+  function callback(results, status, place) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
       createMapMarker(results[0]);
     }
@@ -211,7 +213,8 @@ function initializeMap() {
 
       // Actually searches the Google Maps API for location data and runs the callback
       // function with the search results after each search.
-      service.textSearch(request, callback);
+      service.textSearch(request, function (response, status) { callback(response, status, locations[place]) });
+
     }
   }
 
