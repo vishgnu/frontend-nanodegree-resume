@@ -120,25 +120,43 @@ function initializeMap() {
   function locationFinder() {
 
     // initializes an empty array
-      var locations = [];
+      var locationsAndInfos = [];
 
 
-    // adds the single location property from bio to the locations array
-    locations.push(bio.contacts.location);
+      // adds the single location property from bio to the locations array
+
+      var locAndInf = {
+          "location": bio.contacts.location,
+          "locationInfo": bio.contacts.locationInfo
+                      }
+
+    locationsAndInfos.push(locAndInf);
 
     // iterates through school locations and appends each location to
     // the locations array
     for (var school in education.schools) {
-      locations.push(education.schools[school].location);
+
+        var locAndInf = {
+            "location": education.schools[school].location,
+            "locationInfo": education.schools[school].locationInfo
+        }
+
+        locationsAndInfos.push(locAndInf);
     }
 
     // iterates through work locations and appends each location to
     // the locations array
     for (var job in work.jobs) {
-      locations.push(work.jobs[job].location);
+
+        var locAndInf = {
+            "location": work.jobs[job].location,
+            "locationInfo": work.jobs[job].locationInfo
+        }
+
+        locationsAndInfos.push(locAndInf);
     }
 
-    return locations;
+    return locationsAndInfos;
   }
 
   /*
@@ -146,14 +164,17 @@ function initializeMap() {
   placeData is the object returned from search results containing information
   about a single location.
   */
-  function createMapMarker(placeData) {
+  function createMapMarker(placeData, locationData) {
 
     // The next lines save location data from the search result object to local variables
     var lat = placeData.geometry.location.lat();  // latitude from the place service
     var lon = placeData.geometry.location.lng();  // longitude from the place service
     var name = placeData.formatted_address;   // name of the place from the place service
     var bounds = window.mapBounds;            // current boundaries of the map window
-    var markerInfo = '<div> <h4> JOB: %Data% </h3> <ul> <li> %duration%</li><li> %rating%</li><ul></div>';
+
+    // get data from loationdata
+
+    var markerInfo = '<div> <h2>' + name  +'  </h2> <h4>' + locationData.location + '</h3> <ul> <li>' + locationData.locationInfo+'  </li><ul></div>';
 
     // marker is an object with additional data about the pin for a single location
     var marker = new google.maps.Marker({
@@ -189,7 +210,7 @@ function initializeMap() {
   */
   function callback(results, status, place) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
-      createMapMarker(results[0]);
+      createMapMarker(results[0], place);
     }
   }
 
@@ -197,23 +218,23 @@ function initializeMap() {
   pinPoster(locations) takes in the array of locations created by locationFinder()
   and fires off Google place searches for each location
   */
-  function pinPoster(locations) {
+  function pinPoster(locationsAndInfos) {
 
     // creates a Google place search service object. PlacesService does the work of
     // actually searching for location data.
     var service = new google.maps.places.PlacesService(map);
 
     // Iterates through the array of locations, creates a search object for each location
-    for (var place in locations) {
+    for (var place in locationsAndInfos) {
 
       // the search request object
       var request = {
-        query: locations[place]
+          query: locationsAndInfos[place].location
       };
 
       // Actually searches the Google Maps API for location data and runs the callback
       // function with the search results after each search.
-      service.textSearch(request, function (response, status) { callback(response, status, locations[place]) });
+      service.textSearch(request, function (response, status) { callback(response, status, locationsAndInfos[place]) });
 
     }
   }

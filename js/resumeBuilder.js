@@ -9,7 +9,8 @@ var bio = {
         "github": "https://sfsdaf",
         "twitter": "#titter",
         "blog": "www.myspace.com/blog",
-        "location": "Moers, DE"
+        "location": "Moers, DE",
+        "locationInfo" : "info moers infowinfow goes here"
     },
     "welcomeMessage": "hi there!",
     "skills": [
@@ -54,6 +55,7 @@ var education = {
         {
             "name": "school1",
             "location": "Olbia, IT",
+            "locationInfo" : "<info olbia infowinfow goes here",
             "degree": "MS",
             "majors": ["CS"],
             "dates": 2013,
@@ -62,6 +64,7 @@ var education = {
         {
             "name": "school2",
             "location": "Camogli,IT",
+            "locationInfo" : "info camogli infowinfow goes here",
             "degree": "MBA",
             "majors": ["CHEM"],
             "dates": 2014,
@@ -123,6 +126,7 @@ var work = {
             "title": "Head of Guard",
             "dates": "january 0345 - December 2014 ",
             "location": "Frankfurt, DE",
+            "locationInfo" : "info frankfurt infowinfow goes here",
             "description": "Beheading, sailing, drinking, singing, robbing"
         },
         {
@@ -130,6 +134,7 @@ var work = {
             "title": "Head of Guard",
             "dates": "january 2015 - today",
             "location": "Wesel, DE",
+            "locationInfo" : "info wesel infowinfow goes here",
             "description": "getting coffee for  mr. stark and ms. pepper"
         }
     ],
