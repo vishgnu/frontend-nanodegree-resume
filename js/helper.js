@@ -225,18 +225,21 @@ function initializeMap() {
     var service = new google.maps.places.PlacesService(map);
 
     // Iterates through the array of locations, creates a search object for each location
-    for (var place in locationsAndInfos) {
+    
+      //for (var place in locationsAndInfos) {
+      // use jquery to fix block scope  other wise all will end up last of array
+    $.each(locationsAndInfos, function (key, value) {
 
-      // the search request object
-      var request = {
-          query: locationsAndInfos[place].location
-      };
+        // the search request object
+        var request = {
+            query: value.location //locationsAndInfos[place].location
+        };
 
-      // Actually searches the Google Maps API for location data and runs the callback
-      // function with the search results after each search.
-      service.textSearch(request, function (response, status) { callback(response, status, locationsAndInfos[place]) });
+        // Actually searches the Google Maps API for location data and runs the callback
+        // function with the search results after each search.
+        service.textSearch(request, function (response, status) { callback(response, status, value) });
+    });
 
-    }
   }
 
   // Sets the boundaries of the map based on pin locations
