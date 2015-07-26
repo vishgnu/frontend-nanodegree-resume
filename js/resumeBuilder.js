@@ -1,22 +1,22 @@
 
 var bio = {
-    "name": "Niels",
-    "role": "lead viking",
+    "name": "Hagar the Terrible",
+    "role": "Lead shipbuilder",
     "contacts": {
 
-        "mobile": "213213",
-        "email": "asdfsda@sdfsdf",
-        "github": "https://sfsdaf",
-        "twitter": "#titter",
-        "blog": "www.myspace.com/blog",
-        "location": "Moers, DE",
-        "locationInfo" : "info moers infowinfow goes here"
+        "mobile": "+45 454 454 113",
+        "email": "mastershipbuilder@valhalla.com",
+        "github": "https://github.com/ships",
+        "twitter": "#dragonboats",
+        "blog": "www.myspace.com/blog/vikingblog",
+        "location": "Trondheim, NOR",
+        "locationInfo" : "Born and raised here! Famous harbor city."
     },
-    "welcomeMessage": "hi there!",
+    "welcomeMessage": "Welcome vistor Viking. Here you can see how I got a famous viking shipbuilder. Happy reading.",
     "skills": [
-        "plundering", "burning", "killing"
+        "plundering", "burning", "killing","woodchopping", "ship-building", "sawing","hacking"
     ],
-    "bioPic": "images/fry.jpg",
+    "bioPic": "images/viking.gif",
     "display": function displayBio() {
         // create header
         var headerName = HTMLheaderName.replace("%data%", bio.name);
@@ -36,7 +36,6 @@ var bio = {
         $("#footerContacts").append(mobile).append(email).append(twitter).append(github).append(blog);
 
         //// create bio and skills
-
         var bioPic = HTMLbioPic.replace("%data%", bio.bioPic);
         var bioWelcome = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
 
@@ -53,36 +52,36 @@ var bio = {
 var education = {
     "schools": [
         {
-            "name": "school1",
-            "location": "Olbia, IT",
-            "locationInfo" : "<info olbia infowinfow goes here",
-            "degree": "MS",
-            "majors": ["CS"],
-            "dates": 2013,
-            "url": "http://www.heise.de"
+            "name": "Goeteborg Viking Middleschool",
+            "location": "Goeteborg, SE",
+            "locationInfo": "Viking school class 1-4",
+            "degree": "vikology level 1",
+            "majors": ["Woodworking"],
+            "dates": 1025,
+            "url": "http://www.GVMS.edu"
         },
         {
-            "name": "school2",
-            "location": "Camogli,IT",
-            "locationInfo" : "info camogli infowinfow goes here",
-            "degree": "MBA",
-            "majors": ["CHEM"],
-            "dates": 2014,
-            "url": "http://www.bild.de"
+            "name": "Ipswich School for Viking Arts",
+            "location": "Ipswich,UK",
+            "locationInfo" : "Viking Arts Diploma and Dragonboat Racing Team Captain",
+            "degree": "International Viking Management",
+            "majors": ["Dragonboat building", "Sail cutting"],
+            "dates": 1029,
+            "url": "http://www.ipswich-viking-team.edu"
         }
     ],
     "onlineCourses": [
                 {
-                    "title": "javascript",
-                    "school": "Udacity",
-                    "dates": 2016,
-                    "url": "http://udacity.com"
+                    "title": "Plundering 101",
+                    "school": "www.vikingsight.com",
+                    "dates": 1035,
+                    "url": "http://www.vikingsight.com/course233"
                 },
                 {
-                    "title": "swordmaking",
+                    "title": "Swordmaking at Home",
                     "school": "Udacity",
-                    "dates": 2016,
-                    "url": "http://udacity.com"
+                    "dates": 1030,
+                    "url": "http://udacity.com/swordmadeeasy"
                 }],
     "display": function displayEducation() {
         // create education
@@ -102,8 +101,6 @@ var education = {
             }
             $(".education-entry:last").append(formattedSchool);
         }
-
-
         $(".education-entry:last").append(HTMLonlineClasses);
 
         // create onlinecourses
@@ -124,18 +121,18 @@ var work = {
         {
             "employer": "Thor Inc",
             "title": "Head of Guard",
-            "dates": "january 0345 - December 2014 ",
+            "dates": "January 1035 - December 1039",
             "location": "Frankfurt, DE",
-            "locationInfo" : "info frankfurt infowinfow goes here",
+            "locationInfo" : "Team lead to a viking special ops team.",
             "description": "Beheading, sailing, drinking, singing, robbing"
         },
         {
-            "employer": "Stark Enterprises",
-            "title": "Head of Guard",
-            "dates": "january 2015 - today",
-            "location": "Wesel, DE",
-            "locationInfo" : "info wesel infowinfow goes here",
-            "description": "getting coffee for  mr. stark and ms. pepper"
+            "employer": "Stark Enterprises Inc",
+            "title": "Personal Security",
+            "dates": "January 1040 - today",
+            "location": "Rome, IT",
+            "locationInfo" : "Taking care of personal security for the Stark's",
+            "description": "Getting coffee for  Mr. Stark"
         }
     ],
     "display": function displayWork() {
@@ -155,27 +152,25 @@ var work = {
             $(".work-entry:last").append(wrkItem);
         }
     }
-
 }
 
 var experience = {
     "projects": [
         {
-            "title": "P1",
-            "dates": 2014,
-            "description": "Some stupid accounting",
+            "title": "Viking Ship - ELEONOR",
+            "dates": 2045,
+            "description": "Creation of a new viking ship design for Thor",
             "images": [
-                         "../images/197x148.gif",
-                         "../images/197x148.gif"
+                         "../images/ship1.jpg",
             ]
         },
          {
-             "title": "P2",
-             "dates": 2015,
-             "description": "Some stupid gardening",
+             "title": "Sword Series Midgard",
+             "dates": 2046,
+             "description": "Ultrashap and ultra mighty",
              "images": [
-                          "../images/197x148.gif",
-                           "../images/197x148.gif"
+                          "../images/sword1.jpg",
+                           "../images/sword2.jpg"
              ]
          }
     ],
@@ -213,3 +208,10 @@ work.display();
 experience.display();
 education.display();
 map.display();
+
+
+
+
+//von Søren Niedziella from Denmark [CC BY 2.0 (http://creativecommons.org/licenses/by/2.0)], via Wikimedia Commons
+// https://commons.wikimedia.org/wiki/File:StateLibQld_1_172655_Viking_(ship).jpg?uselang=de
+//https://commons.wikimedia.org/wiki/File:Leif_Ericson_on_the_shore_of_Vinland.gif
