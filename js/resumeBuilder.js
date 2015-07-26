@@ -160,8 +160,8 @@ var experience = {
             "dates": 2014,
             "description": "Some stupid accounting",
             "images": [
-                         "../images/197x148.jpg",
-                         "../images/197x148.jpg"
+                         "../images/197x148.gif",
+                         "../images/197x148.gif"
             ]
         },
          {
@@ -169,8 +169,8 @@ var experience = {
              "dates": 2015,
              "description": "Some stupid gardening",
              "images": [
-                          "../images/197x148.jpg",
-                           "../images/197x148.jpg"
+                          "../images/197x148.gif",
+                           "../images/197x148.gif"
              ]
          }
     ],
@@ -183,7 +183,7 @@ var experience = {
             var prjDate = HTMLprojectDates.replace("%data%", experience.projects[project].dates);
             var prjDesc = HTMLprojectDescription.replace("%data%", experience.projects[project].description);
 
-            var formattedPrj = prjTitle + prjDate + prjDesc + prjIMG;
+            var formattedPrj = prjTitle + prjDate + prjDesc;
 
             for (img in experience.projects[project].images) {
                 var prjIMG = HTMLprojectImage.replace("%data%", experience.projects[project].images[img]);
