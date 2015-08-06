@@ -1,23 +1,22 @@
-
 var bio = {
     "name": "Hagar the Terrible",
     "role": "Lead shipbuilder",
     "contacts": {
-
         "mobile": "+45 454 454 113",
         "email": "mastershipbuilder@valhalla.com",
         "github": "https://github.com/ships",
         "twitter": "#dragonboats",
         "blog": "www.myspace.com/blog/vikingblog",
         "location": "Trondheim, NOR",
-        "locationInfo" : "Born and raised here! Famous harbor city."
+        "locationInfo": "Born and raised here! Famous harbor city."
     },
     "welcomeMessage": "Welcome vistor Viking. Here you can see how I got a famous viking shipbuilder. Happy reading.",
     "skills": [
-        "plundering", "burning", "killing","woodchopping", "ship-building", "sawing","hacking"
+        "plundering", "burning", "killing", "woodchopping", "ship-building", "sawing", "hacking"
     ],
     "bioPic": "images/viking.gif",
     "display": function displayBio() {
+
         // create header
         var headerName = HTMLheaderName.replace("%data%", bio.name);
         var htmlRole = HTMLheaderRole.replace("%data%", bio.role);
@@ -29,11 +28,11 @@ var bio = {
         var twitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
         var github = HTMLgithub.replace("%data%", bio.contacts.github);
         var blog = HTMLblog.replace("%data%", bio.contacts.blog);
-        //var location = HTMLlocation.replace("%data%", bio.contacts.location);
+        var location = HTMLlocation.replace("%data%", bio.contacts.location);
 
         // add contact
-        $("#topContacts").append(mobile).append(email).append(twitter).append(github).append(blog);
-        $("#footerContacts").append(mobile).append(email).append(twitter).append(github).append(blog);
+        $("#topContacts").append(mobile).append(email).append(twitter).append(github).append(blog).append(location);
+        $("#footerContacts").append(mobile).append(email).append(twitter).append(github).append(blog).append(location);
 
         //// create bio and skills
         var bioPic = HTMLbioPic.replace("%data%", bio.bioPic);
@@ -63,7 +62,7 @@ var education = {
         {
             "name": "Ipswich School for Viking Arts",
             "location": "Ipswich,UK",
-            "locationInfo" : "Viking Arts Diploma and Dragonboat Racing Team Captain",
+            "locationInfo": "Viking Arts Diploma and Dragonboat Racing Team Captain",
             "degree": "International Viking Management",
             "majors": ["Dragonboat building", "Sail cutting"],
             "dates": 1029,
@@ -92,9 +91,7 @@ var education = {
             var schoolDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
             var schoolDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
             var schoolLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
-
             var formattedSchool = schoolName + schoolDegree + schoolDates + schoolLocation;
-
             for (major in education.schools[school].majors) {
                 var mjrItem = HTMLschoolMajor.replace("%data%", education.schools[school].majors[major]);
                 formattedSchool += mjrItem;
@@ -109,7 +106,6 @@ var education = {
             var onlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[course].school);
             var onlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses[course].dates);
             var onlineUrl = HTMLonlineURL.replace("%data%", education.onlineCourses[course].url);
-
             var formattedOnline = onlineTitle + onlineSchool + onlineDates + onlineUrl;
             $(".education-entry:last").append(formattedOnline);
         }
@@ -123,7 +119,7 @@ var work = {
             "title": "Head of Guard",
             "dates": "January 1035 - December 1039",
             "location": "Frankfurt, DE",
-            "locationInfo" : "Team lead to a viking special ops team.",
+            "locationInfo": "Team lead to a viking special ops team.",
             "description": "Beheading, sailing, drinking, singing, robbing"
         },
         {
@@ -131,24 +127,20 @@ var work = {
             "title": "Personal Security",
             "dates": "January 1040 - today",
             "location": "Rome, IT",
-            "locationInfo" : "Taking care of personal security for the Stark's",
+            "locationInfo": "Taking care of personal security for the Stark's",
             "description": "Getting coffee for  Mr. Stark"
         }
     ],
     "display": function displayWork() {
         /// create jobs
         for (job in work.jobs) {
-
             $("#workExperience").append(HTMLworkStart);
-
             var wrkEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer)
             var wrkTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
             var wrkDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
             var wrkLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
             var wrkDesc = HTMLworkDescription.replace("%data%", work.jobs[job].description);
-
             var wrkItem = wrkEmployer + wrkTitle + wrkDates + wrkLocation + wrkDesc;
-
             $(".work-entry:last").append(wrkItem);
         }
     }
@@ -208,10 +200,3 @@ work.display();
 experience.display();
 education.display();
 map.display();
-
-
-
-
-//von Søren Niedziella from Denmark [CC BY 2.0 (http://creativecommons.org/licenses/by/2.0)], via Wikimedia Commons
-// https://commons.wikimedia.org/wiki/File:StateLibQld_1_172655_Viking_(ship).jpg?uselang=de
-//https://commons.wikimedia.org/wiki/File:Leif_Ericson_on_the_shore_of_Vinland.gif
