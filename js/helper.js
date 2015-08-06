@@ -85,7 +85,8 @@ function logClicks(x,y) {
 }
 
 $(document).click(function(loc) {
-  // your code goes here!
+    // get page locations and call consolelog function
+    logClicks(loc.pageX, loc.pageY);
 });
 
 
